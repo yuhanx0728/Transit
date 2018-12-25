@@ -2,6 +2,7 @@ from flask import Flask
 from flask_assistant import Assistant, ask, tell
 import requests
 import logging
+import os
 
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 
