@@ -7,9 +7,7 @@ import os
 logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 
 app = Flask(__name__)
-#assist = Assistant(app, route='/', project_id='bustime-dc002')
-assist = Assistant(app, route='/')
-
+assist = Assistant(app, route='/', project_id='bustime-dc002')
 
 @assist.action('check-bus')
 def check_bus():
