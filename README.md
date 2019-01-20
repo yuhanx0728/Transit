@@ -1,5 +1,3 @@
-# Transit
-
 Tired of having to keep my eyes on the phone to check bus arrivals while getting ready for school every morning, I decided to create a Google Home action that allows me to check the real-time bus status for Pittsburgh public transport.
 
 ## Creating the webhook
