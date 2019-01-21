@@ -9,9 +9,18 @@ logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 app = Flask(__name__)
 assist = Assistant(app, route='/', project_id='bustime-dc002')
 
+@assist.action('store-bus-to-work')
+def store_bus_to_work():
+    pass
+
+@assist.action('store-bus-back-home')
+def store_bus_back_home():
+    pass
+
 @assist.action('check-bus')
-def check_bus():
-    url = 'http://truetime.portauthority.org/bustime/api/v3/getpredictions?key=8NAuMkVvD3kDkV6fJzFj4AhJG&rt=61D&stpid=10922&rtpidatafeed=Port Authority Bus&format=json'
+def check_bus(rt, stpid):
+    APIKey = '' # taken out
+    url = 'http://truetime.portauthority.org/bustime/api/v3/getpredictions?key='+APIKey+'&rt='+rt+'&stpid='+str(int(stpid))+'&rtpidatafeed=Port Authority Bus&format=json'
     response = requests.get(url)
     raw_data = response.json()
 
@@ -19,9 +28,9 @@ def check_bus():
         data = raw_data["bustime-response"]["prd"][0]
         speech = "Bus is coming in " + get_remaining_minutes(data) + " minutes at " + get_time(data)
     except:
-        speech = "Probably no bus is coming right now. Check your phone app."
+        speech = "No bus is coming right now, possibly. Check your Goolge Maps to confirm."
 
-    return ask(speech)
+    return tell(speech)
 
 def get_time(data):
     prdtm = data["prdtm"][9:]
