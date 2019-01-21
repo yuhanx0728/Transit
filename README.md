@@ -12,8 +12,8 @@ To integrate the webhook into Google Action I have to deploy the webhook to a cl
 3. Working with APIs.
 
 ## What I plan to do next
-[ ] use permanent storage to store user information like home bus stop and schoool bus stop
-[ ] upload a demo video
+- [ ] use permanent storage to store user information like home bus stop and schoool bus stop
+- [ ] upload a demo video
 
 ## How to use Transit
 Transit is not open to public *yet*, but just to show you, this is how a conversation would go when you want to check your bus:
