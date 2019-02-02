@@ -19,7 +19,7 @@ def store_bus_back_home():
 
 @assist.action('check-bus')
 def check_bus(rt, stpid):
-    APIKey = '' # taken out
+    APIKey = '8NAuMkVvD3kDkV6fJzFj4AhJG' # taken out
     url = 'http://truetime.portauthority.org/bustime/api/v3/getpredictions?key='+APIKey+'&rt='+rt+'&stpid='+str(int(stpid))+'&rtpidatafeed=Port Authority Bus&format=json'
     response = requests.get(url)
     raw_data = response.json()
@@ -28,7 +28,7 @@ def check_bus(rt, stpid):
         data = raw_data["bustime-response"]["prd"][0]
         speech = "Bus is coming in " + get_remaining_minutes(data) + " minutes at " + get_time(data)
     except:
-        speech = "No bus is coming right now, possibly. Check your Goolge Maps to confirm."
+        speech = "Either you have the wrong stop ID or no bus is coming right now. Check Port Authority website to confirm."
 
     return tell(speech)
 
