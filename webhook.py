@@ -19,7 +19,7 @@ def store_bus_back_home():
 
 @assist.action('check-bus')
 def check_bus(rt, stpid):
-    APIKey = '8NAuMkVvD3kDkV6fJzFj4AhJG' # taken out
+    APIKey = "" # taken out
     url = 'http://truetime.portauthority.org/bustime/api/v3/getpredictions?key='+APIKey+'&rt='+rt+'&stpid='+str(int(stpid))+'&rtpidatafeed=Port Authority Bus&format=json'
     response = requests.get(url)
     raw_data = response.json()
